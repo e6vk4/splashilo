@@ -1,0 +1,40 @@
+/* Br Firma */
+@font-face {
+  font-family: 'BR Firma';
+  src: local('BR Firma Regular'),
+    url('../fonts/br-firma/BRFirmaCW-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+  unicode-range: U+000-5FF;
+}
+
+@font-face {
+  font-family: 'BR Firma';
+  src: local('BR Firma Medium'),
+    url('../fonts/br-firma/BRFirmaCW-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+  unicode-range: U+000-5FF;
+}
+
+@font-face {
+  font-family: 'BR Firma';
+  src: local('BR Firma SemiBold'),
+    url('../fonts/br-firma/BRFirmaCW-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+  unicode-range: U+000-5FF;
+}
+
+@font-face {
+  font-family: 'BR Firma';
+  src: local('BR Firma Bold'),
+    url('../fonts/br-firma/BRFirmaCW-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-display: swap;
+  font-style: normal;
+  unicode-range: U+000-5FF;
+}
