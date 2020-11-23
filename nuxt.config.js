@@ -17,6 +17,7 @@ export default {
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     '@/assets/scss/variables.scss',
+    '@/assets/scss/mixins.scss',
     '@/assets/scss/styles.scss',
     '@/assets/scss/typography.scss',
   ],
@@ -43,7 +44,7 @@ export default {
   ],
 
   styleResources: {
-    scss: ['./assets/scss/variables.scss'],
+    scss: ['./assets/scss/variables.scss', './assets/scss/mixins.scss'],
   },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
