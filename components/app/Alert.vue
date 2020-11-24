@@ -29,7 +29,7 @@ export default {
   width: auto;
   padding: 1rem 2rem;
   position: absolute;
-  bottom: 0;
+  top: 8rem;
   z-index: 50;
   color: $white;
   margin: 0 auto;
@@ -38,7 +38,6 @@ export default {
 
   @include respond-to('sm') {
     top: 0;
-    bottom: unset;
   }
 
   &__error {
