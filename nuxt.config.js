@@ -1,7 +1,7 @@
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'splashilo',
+    title: 'Splashilo',
     meta: [
       { charset: 'utf-8' },
       {
@@ -22,9 +22,6 @@ export default {
     '@/assets/scss/typography.scss',
   ],
 
-  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
-
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
@@ -43,6 +40,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
+
+  target: 'static',
 
   styleResources: {
     scss: ['./assets/scss/variables.scss', './assets/scss/mixins.scss'],
