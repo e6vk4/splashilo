@@ -6,4 +6,17 @@ $navy-3: #dde2e8;
 $gray: #e6e6e6;
 $gray-2: #f5f5f5;
 
+$red: #dc2626;
+
+$blue: #3b82f6;
+
 $white: #fff;
+
+// breakpoints
+$breakpoints: (
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  '2xl': 1536px,
+) !default;

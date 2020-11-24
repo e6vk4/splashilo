@@ -1,7 +1,7 @@
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'splashilo',
+    title: 'Splashilo - Mini Unsplash Clone',
     meta: [
       { charset: 'utf-8' },
       {
@@ -17,12 +17,10 @@ export default {
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     '@/assets/scss/variables.scss',
+    '@/assets/scss/mixins.scss',
     '@/assets/scss/styles.scss',
     '@/assets/scss/typography.scss',
   ],
-
-  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -34,6 +32,7 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     '@nuxtjs/style-resources',
+    '@nuxtjs/dotenv',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -42,8 +41,10 @@ export default {
     '@nuxtjs/axios',
   ],
 
+  target: 'static',
+
   styleResources: {
-    scss: ['./assets/scss/variables.scss'],
+    scss: ['./assets/scss/variables.scss', './assets/scss/mixins.scss'],
   },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)

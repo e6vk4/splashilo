@@ -9,6 +9,8 @@
     viewBox="0 0 512 512"
     style="enable-background: new 0 0 512 512"
     xml:space="preserve"
+    width="20"
+    height="20"
   >
     <g>
       <g>
