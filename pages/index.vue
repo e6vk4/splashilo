@@ -6,6 +6,10 @@
       @modal-close="showModal = false"
     />
     <Alert :show="alert.type" :type="alert.type" :message="alert.message" />
+    <div class="container__scroll-icon">
+      <IconScroll class="container__scroll-icon-scroll" />
+      <span>scroll</span>
+    </div>
     <div class="search">
       <div v-if="isLoadingPhotos && !isOnMount" class="search__label">
         <Button class="search__label-icon" @click.native="back">
@@ -87,6 +91,7 @@
 <script>
 import IconSearch from '@/components/icons/IconSearch'
 import IconBack from '@/components/icons/IconBack'
+import IconScroll from '@/components/icons/IconScroll'
 import Skeleton from '@/components/elements/Skeleton'
 import Button from '@/components/elements/Button'
 import Modal from '@/components/app/Modal'
@@ -96,6 +101,7 @@ export default {
   components: {
     IconSearch,
     IconBack,
+    IconScroll,
     Skeleton,
     Button,
     Modal,
@@ -219,9 +225,32 @@ export default {
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   text-align: center;
   position: relative;
+  height: 100vh;
+
+  &__scroll-icon {
+    position: fixed;
+    right: 15rem;
+    bottom: 10rem;
+    display: none;
+
+    @include respond-to('xl') {
+      display: flex;
+      align-items: center;
+    }
+
+    &-scroll {
+      width: 1.7rem;
+      height: 1.7rem;
+      fill: $navy;
+    }
+
+    & span {
+      color: $navy-2;
+    }
+  }
 }
 
 .search {
