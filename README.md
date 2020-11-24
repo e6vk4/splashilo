@@ -1,5 +1,7 @@
 # splashilo
 
+Splashilo is a mini Unsplash clone with Infinite scroll that makes use of the Unsplash API.
+
 ## Build Setup
 
 ```bash
