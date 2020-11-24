@@ -51,13 +51,10 @@ export default {
 
   mounted() {
     const onEscape = (e) => {
-      if (!this.showing || e.key !== 'Escape') {
-        return
-      }
+      if (!this.showing || e.key !== 'Escape') return
       this.$emit('modal-close')
     }
     document.addEventListener('keydown', onEscape)
-
     this.$on('hook:destroyed', () => {
       document.removeEventListener('keydown', onEscape)
     })
@@ -122,7 +119,7 @@ export default {
       position: relative;
       overflow: hidden;
       width: 100vw;
-      height: 100vh;
+      height: 80vh;
       border-radius: unset;
 
       @include respond-to('md') {
