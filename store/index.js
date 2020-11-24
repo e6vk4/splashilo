@@ -32,7 +32,11 @@ export const actions = {
       instance
         .get(`/search/photos?query=${query}&page=${page}&per_page=${perPage}`)
         .then((response) => {
-          const results = response.data.results
+          let results = response.data.results
+          results = results.map((i) => {
+            i.flowNum = Math.floor(Math.random() * (10 - 5 + 1)) + 5
+            return i
+          })
 
           commit('setPhotos', {
             photos: results,
