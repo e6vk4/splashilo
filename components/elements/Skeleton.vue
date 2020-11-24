@@ -1,7 +1,7 @@
 <template>
   <div class="component">
-    <div class="skeleton first"></div>
-    <div class="skeleton second"></div>
+    <div class="skeleton"></div>
+    <div class="skeleton"></div>
   </div>
 </template>
 
@@ -16,7 +16,7 @@
   background: $gray;
   animation: 0.8s linear infinite alternate animation-fadeInfadeOut;
   border-radius: 0.2rem;
-  opacity: 0.9;
+  opacity: 1;
   box-shadow: none;
   background-clip: padding-box;
   cursor: default;
@@ -24,12 +24,9 @@
   pointer-events: none;
   user-select: none;
   height: 0.6rem;
+  width: 5rem;
 
-  &.first {
-    width: 5rem;
-  }
-
-  &.second {
+  &:nth-child(2) {
     margin-top: 0.3rem;
     width: 2rem;
   }
@@ -37,8 +34,8 @@
 
 @keyframes animation-fadeInfadeOut {
   0% {
-    border-color: $gray-2;
-    background: $gray-2;
+    border-color: $navy-3;
+    background: $navy-3;
   }
   100% {
     border-color: $gray;
