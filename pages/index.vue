@@ -32,16 +32,28 @@
         </form>
       </div>
       <div ref="searchRes" class="search__results">
-        <div v-show="isLoadingPhotos && !infiniteScroll">
-          <div v-for="items in 8" :key="items" class="search__results-item">
-            <Skeleton class="search__results-item-skeleton" />
-          </div>
+        <div
+          v-for="i in 8"
+          :key="i + 'A'"
+          :class="
+            isLoadingPhotos && !infiniteScroll
+              ? 'search__results-item'
+              : 'hidden'
+          "
+          :style="{
+            'grid-row-end': `span ${
+              Math.floor(Math.random() * (10 - 5 + 1)) + 5
+            }`,
+          }"
+        >
+          <Skeleton class="search__results-item-skeleton" />
         </div>
         <div
           v-for="(photo, index) in photos"
-          :key="index"
+          :key="index + 'B'"
           :style="{
-            background: `linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.85)), center / cover no-repeat url(${photo.urls.regular})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.85)), url(${photo.urls.regular})`,
+            'grid-row-end': `span ${photo.flowNum}`,
           }"
           class="search__results-item"
           @click="openModal(photo)"
@@ -51,10 +63,21 @@
             <div>{{ photo.user.location }}</div>
           </div>
         </div>
-        <div v-show="isLoadingPhotos && infiniteScroll">
-          <div v-for="items in 3" :key="items" class="search__results-item">
-            <Skeleton class="search__results-item-skeleton" />
-          </div>
+        <div
+          v-for="i in 3"
+          :key="i + 'C'"
+          :class="
+            isLoadingPhotos && infiniteScroll
+              ? 'search__results-item'
+              : 'hidden'
+          "
+          :style="{
+            'grid-row-end': `span ${
+              Math.floor(Math.random() * (10 - 5 + 1)) + 5
+            }`,
+          }"
+        >
+          <Skeleton class="search__results-item-skeleton" />
         </div>
       </div>
     </div>
@@ -105,22 +128,17 @@ export default {
   mounted() {
     this.isOnMount = true
     this.search('African')
-  },
-  beforeMount() {
-    window.addEventListener('scroll', this.infiniteScrollLoader())
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.infiniteScrollLoader())
+    this.infiniteScrollLoader()
   },
   methods: {
     infiniteScrollLoader() {
       const vm = this
-
-      vm.$nextTick(() => {
+      this.$nextTick(() => {
         window.addEventListener('scroll', function () {
           setTimeout(() => {
             vm.infiniteScrollSearched = false
           }, 2000)
+
           if (vm.infiniteScrollSearched) return
           if (
             window.innerHeight + window.scrollY >=
@@ -234,6 +252,7 @@ export default {
     align-items: center;
     width: 100%;
     flex-flow: wrap;
+    font-weight: 500;
 
     @include respond-to('sm') {
       font-size: 2rem;
@@ -304,37 +323,29 @@ export default {
     position: absolute;
     top: 5rem;
     width: 100%;
-    max-width: 900px;
-    padding: 0 2rem;
-    column-gap: 30px;
-    column-count: 3;
-    column-width: 150px;
-    column-fill: balance-all;
+    max-width: 41.875rem;
+    padding: 0 2rem 2rem 2rem;
+    display: grid;
+    grid-row-gap: 1.875rem;
+    grid-auto-rows: 1.875rem;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    column-gap: 1.875rem;
 
     @include respond-to('md') {
-      padding: 0 9rem;
+      grid-template-columns: repeat(auto-fit, minmax(10.625rem, 1fr));
     }
 
     &-item {
-      margin: 0 0 30px;
-      display: inline-block;
       width: 100%;
+      height: 100%;
       border-radius: 0.3rem;
       position: relative;
       overflow: hidden;
-      height: 100%;
       background-size: cover;
+      background-position: center;
       background-repeat: no-repeat;
       background-color: $gray-2;
-      transition: all 0.5s ease-in-out;
-
-      @for $i from 1 through 10000 {
-        &:nth-child(#{$i}) {
-          $h: (random(200) + 180) + px;
-
-          height: $h;
-        }
-      }
+      transition: all 0.5s;
 
       &:hover {
         cursor: zoom-in;
